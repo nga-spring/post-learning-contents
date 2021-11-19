@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<h1 class="mt-5 pt-4 text-center">学習内容一覧</h1>
+<div class="text-center">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>日付</th>
+        <th>学習時間</th>
+        <th>投稿内容</th>
+        <th>難しかった点</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for sns in object_list %}
+        <tr>
+          <th>{{ sns.user }}</th>
+          <th>{{ sns.created_date }}</th>
+          <th>{{ sns.learning_time }}</th>
+          <th>{{ sns.contents }}</th>
+          <th>{{ difficult_point }}</th>
+          <td><a href ="{% url 'sns_edit' pk=sns.pk %}">編集</a> <a href ="{% url 'sns_delete' pk=sns.pk %}">削除</a></td>
+      
+      {% endfor %}
+        </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

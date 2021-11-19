@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<h1 class="mt-5 pt-4 text-center">新規学習内容登録</h1>
+
+<form method="POST">
+  <!-- CSR対策 -->
+  {% csrf_token %}
+  <!-- フォーム表示 -->
+  {{ form.as_p }}
+  <!-- 登録ボタン -->
+  <button type="submit" class="btn btn-block btn-secondary">登録</button>
+</form>
+
+{% endblock %}
